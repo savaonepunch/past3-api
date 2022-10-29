@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const PORT = 443;
+const PORT = 3000;
 
 const corsOptions = {
     origin: '*',
