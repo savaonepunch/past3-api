@@ -5,14 +5,14 @@ const router = express.Router();
 const Paste = require('../models/Paste');
 
 // Get all pastes
-router.get('/', async (req, res) => {
-    try {
-        const pastes = await Paste.find({});
-        res.json(pastes);
-    } catch (error) {
-        res.status(500).json(error);
-    }
-});
+// router.get('/', async (req, res) => {
+//     try {
+//         const pastes = await Paste.find({});
+//         res.json(pastes);
+//     } catch (error) {
+//         res.status(500).json(error);
+//     }
+// });
 
 // Get a paste
 router.get('/:id', async (req, res) => {
