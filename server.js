@@ -33,4 +33,8 @@ db.on('open', () => {
     // app.use('/user', authRoute);
 
     app.listen(PORT, () => console.log(`Server listening on port ${PORT}.`))
+
+    app.get('/', (req, res) => {
+        res.json({ message: "Works!" });
+    });
 });
