@@ -16,12 +16,10 @@ const Paste = require('../models/Paste');
 
 // Get a paste
 router.get('/:id', async (req, res) => {
-    console.log(req.params.id);
     try {
         const paste = await Paste.find({
             "_id": req.params.id
         });
-        console.log(paste);
         if (!paste.length) {
             return res.status(404).json({ message: "Could not find movie suggestion" });
         } else {
