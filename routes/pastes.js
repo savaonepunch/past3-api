@@ -37,7 +37,8 @@ router.post('/', async (req, res) => {
     const paste = new Paste({
         title: req.body.title,
         author: req.body.author,
-        paste: req.body.paste
+        paste: req.body.paste,
+        syntax: req.body.syntax,
     })
 
     try {
