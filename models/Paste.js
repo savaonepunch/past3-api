@@ -15,6 +15,14 @@ module.exports = mongoose.model('Paste', new mongoose.Schema({
     },
     syntax: {
         type: String,
+        enum: [
+            'text',
+            'markup',
+            'css',
+            'javascript',
+            'java',
+            'cpp'
+        ],
         required: true,
         default: "text"
     },
