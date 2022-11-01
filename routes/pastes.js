@@ -1,8 +1,11 @@
 const { json } = require('body-parser');
 const express = require('express');
 const router = express.Router();
+const { Webhook, MessageBuilder } = require('discord-webhook-node');
 
 const Paste = require('../models/Paste');
+
+const hook = new Webhook(process.env.DISCORD_WEBHOOK);
 
 // Get all pastes
 // router.get('/', async (req, res) => {
@@ -21,7 +24,7 @@ router.get('/:id', async (req, res) => {
             "_id": req.params.id
         });
         if (!paste.length) {
-            return res.status(404).json({ message: "Could not find movie suggestion" });
+            return res.status(404).json({ message: "Could not find paste" });
         } else {
             res.json(paste[0]);
         }
@@ -42,6 +45,15 @@ router.post('/', async (req, res) => {
     try {
         const newPaste = await paste.save();
         res.status(201).json({ newPaste });
+        const embed = new MessageBuilder()
+            .setTitle(newPaste.title)
+            .setAuthor(newPaste.author)
+            .setURL(`https://past3.netlify.app/pastes/${ newPaste._id }`)
+            .setColor('#fff')
+            .setDescription(newPaste.paste)
+            .setTimestamp(newPaste.addedDate);
+        await hook.send(embed);
+
     } catch (error) {
         res.status(400).json({ error });
     }

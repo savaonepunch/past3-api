@@ -27,10 +27,10 @@ db.on('open', () => {
     app.use(express.json());
 
     const pastesRoute = require('./routes/pastes');
-    // const authRoute = require('./routes/auth');
+    const authRoute = require('./routes/auth');
 
     app.use('/pastes', pastesRoute);
-    // app.use('/user', authRoute);
+    app.use('/user', authRoute);
 
     app.listen(PORT, () => console.log(`Server listening on port ${PORT}.`))
 
