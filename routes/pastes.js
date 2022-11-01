@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
       .setColor("#fff")
       .setDescription(newPaste.paste)
       .setTimestamp(newPaste.addedDate);
-    await hook
+    hook
       .send(embed)
       .then(() => console.log("Sent webhook successfully!"))
       .catch((err) => console.log(err.message));
