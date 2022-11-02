@@ -44,7 +44,6 @@ router.post("/", async (req, res) => {
 
   try {
     const newPaste = await paste.save();
-    res.status(201).json({ newPaste });
     const embed = new MessageBuilder()
       .setTitle(newPaste.title)
       .setAuthor(newPaste.author)
@@ -56,6 +55,7 @@ router.post("/", async (req, res) => {
       .send(embed)
       .then(() => console.log("Sent webhook successfully!"))
       .catch((err) => console.log(err.message));
+    res.status(201).json({ newPaste });
   } catch (error) {
     res.status(400).json({ error });
   }
