@@ -6,7 +6,6 @@ module.exports = mongoose.model('User', new mongoose.Schema({
         required: true,
         minLength: 3,
         maxLength: 255,
-        unique: true
     },
     email: {
         type: String,
@@ -20,6 +19,11 @@ module.exports = mongoose.model('User', new mongoose.Schema({
         required: true,
         minLength: 6,
         maxLength: 1024,
+    },
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        default: false
     },
     addedDate: {
         type: Date,

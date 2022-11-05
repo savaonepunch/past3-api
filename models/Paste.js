@@ -26,6 +26,11 @@ module.exports = mongoose.model('Paste', new mongoose.Schema({
         required: true,
         default: "text"
     },
+    userId: {
+        type: String,
+        required: true,
+        default: "Guest"
+    },
     addedDate: {
         type: Date,
         required: true,
