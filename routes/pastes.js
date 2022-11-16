@@ -64,7 +64,7 @@ router.post("/", async (req, res) => {
             .setTitle(newPaste.title)
             .setAuthor(newPaste.author)
             .setURL(`https://past3.netlify.app/pastes/${newPaste._id}`)
-            .setColor("#fff")
+            .setColor("#ffffff")
             .setDescription(newPaste.paste)
             .setTimestamp(newPaste.addedDate);
         hook
