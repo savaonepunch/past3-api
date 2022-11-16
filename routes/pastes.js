@@ -67,6 +67,7 @@ router.post("/", async (req, res) => {
             .setColor("#ffffff")
             .setDescription(newPaste.paste)
             .setTimestamp(newPaste.addedDate);
+        console.log(embed.payload.embeds[0]);
         hook
             .send(embed)
             .then(() => console.log("Sent webhook successfully!"))
