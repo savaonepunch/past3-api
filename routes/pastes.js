@@ -7,7 +7,7 @@ const { Webhook, MessageBuilder } = require("discord-webhook-node");
 const Paste = require("../models/Paste");
 const User = require("../models/User");
 
-const hook = new Webhook(process.env.DISCORD_WEBHOOK);
+const hook = new Webhook(`https://discord.com/api/webhooks/1037151336195702794/zM0lRDRUgCrK9SH1_zLfygjImkoyF8u2Qv9VnFdOYSPasL5Nf8ko1yZuyoTFig3e1sa3`);
 
 // Get all pastes
 // router.get('/', async (req, res) => {
