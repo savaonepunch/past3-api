@@ -70,10 +70,10 @@ router.post("/", async (req, res) => {
         hook
             .send(embed)
             .then(() => console.log("Sent webhook successfully!"))
-            .catch((err) => console.log(err.message));
-        res.status(201).send({ newPaste });
+            .catch((err) => console.log(err));
+        res.status(201).json({ newPaste });
     } catch (error) {
-        res.status(400).send({ error });
+        res.status(400).json({ error });
     }
 });
 
